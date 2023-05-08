@@ -9,7 +9,7 @@ function init() {
   let hornSelect = document.getElementById("horn-select");
   let hornImage = document.querySelector("img[src = 'assets/images/no-image.png']");
   let hornAudio = document.querySelector("audio[src = '']");
-
+  const jsConfetti = new JSConfetti()
 
   hornSelect.addEventListener('change', select);
 
@@ -58,24 +58,11 @@ function init() {
   playButton.addEventListener('click', play);
 
   function play(event) {
-    console.log("play function called");
-
     hornAudio.play();
 
     let horn = hornSelect.value;
-    console.log("horn value:", horn);
-
-
     if (horn == "party-horn") {
-      let confetti = new JSConfetti();
-      const centerX = window.innerWidth / 2;
-      const centerY = window.innerHeight / 2;
-      console.log(centerY);
-      confetti.addConfetti()({
-        confettiRadius: 6,
-        confettiNumber: 500,
-        origin: { x: centerX, y: centerY },
-      })
+      jsConfetti.addConfetti()
     }
   }
 
